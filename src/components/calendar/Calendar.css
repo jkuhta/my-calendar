@@ -1,0 +1,120 @@
+.calendar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  padding-bottom: 3rem;
+}
+
+.calendar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.calendar-header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 columns with equal width */
+}
+
+.calendar-header-item {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.calendar-body {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 columns with equal width */
+}
+
+.calendar-body-item {
+  display: flex;
+  flex-direction: column;
+
+  height: 12vh;
+  border-radius: 1rem;
+  border: 1px solid #f1f1f1;
+  margin: 0.1rem;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.calendar-body-item:hover {
+  background-color: rgb(217, 237, 255);
+}
+
+.calendar-body-item-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  padding: 0.7rem 0.7rem 0 0;
+  height: 1rem;
+}
+
+.calendar-body-item-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.calendar-body-item-holiday {
+  color: rgb(147, 147, 147);
+  font-weight: 400;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+}
+
+.current-day {
+  border: 2px solid red;
+}
+
+.sunday {
+  font-weight: 600;
+}
+
+.not-current-month {
+  background-color: rgb(239, 239, 239);
+  color: rgb(187, 187, 187);
+}
+
+.not-current-month:hover {
+  background-color: rgb(239, 239, 239);
+}
+
+.calendar-body-item-label-holiday {
+  font-weight: 400;
+  color: rgb(147, 147, 147);
+}
+
+.calendar-body-item-holiday-icon {
+  display: none;
+}
+
+/* Media query for devices with a maximum width of 768 pixels */
+@media only screen and (max-width: 1024px) {
+  .calendar-body-item-holiday,
+  .calendar-body-item-label-holiday {
+    display: none;
+  }
+
+  .calendar-body-item-holiday-icon {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .calendar-body-item-header {
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0 0 0;
+  }
+}

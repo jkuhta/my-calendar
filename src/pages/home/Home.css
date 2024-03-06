@@ -1,0 +1,15 @@
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+}
+
+.back-button {
+  position: absolute;
+}
+
+.home-title {
+  flex-grow: 1;
+  text-align: center;
+}
