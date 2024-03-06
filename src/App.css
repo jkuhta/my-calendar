@@ -37,3 +37,15 @@
     padding: 0rem;
   }
 }
+@media only screen and (max-width: 768px) {
+  .page-title {
+    font-size: 1.5rem;
+    padding: 0rem;
+  }
+  .link-button {
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    font-weight: 400;
+    border-radius: 0.5rem;
+    left: 1.5rem;
+  }
+}

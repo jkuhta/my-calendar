@@ -25,10 +25,17 @@ const Calendar = ({ currentDate, selectedDate, holidaysData }) => {
   return (
     <div className="calendar">
       <div className="calendar-container">
-        <div className="calendar-header">
+        <div className="calendar-header calendar-header-default">
           {weekDays.map((weekDay, i) => (
             <div key={i} className="calendar-header-item">
               {weekDay}
+            </div>
+          ))}
+        </div>
+        <div className="calendar-header calendar-header-small">
+          {weekDays.map((weekDay, i) => (
+            <div key={i} className="calendar-header-item">
+              {weekDay.slice(0, 1)}
             </div>
           ))}
         </div>

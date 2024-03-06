@@ -26,3 +26,9 @@
 .welcome-header-time {
   font-size: 2.5rem;
 }
+
+@media only screen and (max-width: 768px) {
+  .welcome-container {
+    width: 60vw;
+  }
+}

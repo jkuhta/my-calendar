@@ -58,7 +58,7 @@ const CalendarControls = ({
             name="select-year"
             onChange={(e) => handleYear(e.target.value)}
             placeholder="2024"
-            maxlength="4"
+            maxLength="4"
           />
           <input
             className="controls-date"
