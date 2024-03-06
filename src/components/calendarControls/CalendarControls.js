@@ -1,6 +1,7 @@
 import React from "react";
 import "./CalendarControls.css";
 
+// Component to show calendar controls - select month | select year | select date
 const CalendarControls = ({
   handleMonth,
   handlePrevMonth,

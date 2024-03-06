@@ -27,6 +27,7 @@
   font-size: 2.5rem;
 }
 
+/* Media query for devices with a maximum width of 768 pixels */
 @media only screen and (max-width: 768px) {
   .welcome-container {
     width: 60vw;

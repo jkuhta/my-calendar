@@ -7,6 +7,7 @@ import Papa from "papaparse";
 import { useEffect, useState } from "react";
 
 function App() {
+  // Parse CSV file to store holidays
   const [holidaysData, setHolidaysData] = useState([]);
 
   useEffect(() => {

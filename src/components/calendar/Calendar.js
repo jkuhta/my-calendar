@@ -3,9 +3,11 @@ import "./Calendar.css";
 const Calendar = ({ currentDate, selectedDate, holidaysData }) => {
   const weekDays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
+  // Extract month and year from selected date
   var month = selectedDate.getMonth();
   var year = selectedDate.getFullYear();
 
+  // Create array to store all dates shown in calendar, populate dates of previous and next month
   const allDatesToShow = [];
   const startDay = new Date(year, month, 1).getDay();
   const overflow = startDay - 2;
@@ -14,11 +16,11 @@ const Calendar = ({ currentDate, selectedDate, holidaysData }) => {
     allDatesToShow.push(day);
   }
 
+  // Function to format date to YYYY-MM-DD
   function formatDate(date) {
     const day = String(date.getDate()).padStart(2, "0");
     const month = String(date.getMonth() + 1).padStart(2, "0");
     const year = date.getFullYear();
-
     return `${year}-${month}-${day}`;
   }
 
@@ -42,6 +44,7 @@ const Calendar = ({ currentDate, selectedDate, holidaysData }) => {
         <div className="calendar-body">
           {allDatesToShow.map((date, i) => {
             const formattedDate = formatDate(date);
+            // Check if date is also a holiday
             const holiday = holidaysData.find(
               (holiday) =>
                 (holiday.Date.slice(5) === formattedDate.slice(5) &&
@@ -52,6 +55,7 @@ const Calendar = ({ currentDate, selectedDate, holidaysData }) => {
             return (
               <div
                 key={i}
+                // Add classes for: sunday | current-day | holiday | not-current-month
                 className={`calendar-body-item 
         ${date.getDay() === 0 ? "sunday" : ""}
         ${formattedDate === formatDate(currentDate) ? "current-day" : ""}

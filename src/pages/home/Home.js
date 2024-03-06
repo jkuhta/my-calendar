@@ -3,37 +3,46 @@ import Calendar from "../../components/calendar/Calendar";
 import CalendarControls from "../../components/calendarControls/CalendarControls";
 import "./Home.css";
 import { Link } from "react-router-dom";
+
+// Component to render HomePage with Calendar and Calendar controls
 const Home = ({ holidaysData }) => {
   const currentDate = new Date(Date.now());
-
+  // State selectedDate defines month and year shown in calendar
   const [selectedDate, setSelectedDate] = useState(currentDate);
 
-  const handleMonth = (selected_month) => {
+  // Function to update Month to selected month
+  const handleMonth = (selectedMonth) => {
     const newDate = new Date(selectedDate);
-    newDate.setMonth(Number(selected_month));
+    newDate.setMonth(Number(selectedMonth));
     setSelectedDate(newDate);
   };
+
+  // Function to update Month to next month
   const handleNextMonth = () => {
     const newDate = new Date(selectedDate);
     newDate.setMonth(selectedDate.getMonth() + 1);
     setSelectedDate(newDate);
   };
+
+  // Function to update Month to previous month
   const handlePrevMonth = () => {
     const newDate = new Date(selectedDate);
     newDate.setMonth(selectedDate.getMonth() - 1);
     setSelectedDate(newDate);
   };
 
-  const handleYear = (selected_year) => {
-    if (selected_year.length === 4) {
+  // Function to update Year to selected year
+  const handleYear = (selectedYear) => {
+    if (selectedYear.length === 4) {
       const newDate = new Date(selectedDate);
-      newDate.setFullYear(Number(selected_year));
+      newDate.setFullYear(Number(selectedYear));
       setSelectedDate(newDate);
     }
   };
 
-  const handleDate = (selected_date) => {
-    let newDate = new Date(selected_date);
+  // Function to update Date to selected date
+  const handleDate = (selectedDate_) => {
+    let newDate = new Date(selectedDate_);
     setSelectedDate(newDate);
   };
   return (

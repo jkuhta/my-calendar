@@ -99,7 +99,7 @@
   display: none;
 }
 
-/* Media query for devices with a maximum width of 768 pixels */
+/* Media query for devices with a maximum width of 1024 pixels */
 @media only screen and (max-width: 1024px) {
   .calendar-body-item-holiday,
   .calendar-body-item-label-holiday {
@@ -113,7 +113,7 @@
     font-size: 1.2rem;
   }
 }
-
+/* Media query for devices with a maximum width of 768 pixels */
 @media only screen and (max-width: 768px) {
   .calendar-body-item-header {
     justify-content: center;
@@ -131,6 +131,8 @@
   .calendar-body-item {
     font-size: 1rem;
     height: 10vh;
+    border-radius: 0.5rem;
+    margin: 0.05rem;
   }
 
   .calendar {

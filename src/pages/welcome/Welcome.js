@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Welcome.css";
+
+// Component to render Welcome screen
 const Welcome = () => {
   const [currentDate, setCurrentTime] = useState(new Date(Date.now()));
 
+  // Update current Time every minute
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentTime(new Date(Date.now()));
@@ -12,12 +15,14 @@ const Welcome = () => {
     return () => clearInterval(intervalId);
   }, []);
 
+  // Format date to 'Day, Mth MM, YYY'
   const formattedDate = currentDate.toLocaleDateString("en-US", {
     weekday: "short",
     month: "short",
     day: "2-digit",
     year: "numeric",
   });
+  // Format time to HH:MM
   const formattedTime = currentDate.toLocaleTimeString("en-UK", {
     hour: "2-digit",
     minute: "2-digit",
