@@ -62,6 +62,7 @@ const CalendarControls = ({
             pattern="[0-9]{3}[1-9]"
             onChange={(e) => handleYear(e)}
             placeholder="YYYY"
+            defaultValue={selectedDate.getFullYear()}
             onInput={(e) => (e.target.value = e.target.value.slice(0, 4))}
           />
           <input
