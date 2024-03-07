@@ -54,12 +54,15 @@ const CalendarControls = ({
           </select>
           <input
             className="controls-year"
-            type="text"
+            type="number"
             id="select-year"
             name="select-year"
-            onChange={(e) => handleYear(e.target.value)}
-            placeholder="2024"
-            maxLength="4"
+            min="1"
+            max="9999"
+            pattern="[0-9]{3}[1-9]"
+            onChange={(e) => handleYear(e)}
+            placeholder="YYYY"
+            onInput={(e) => (e.target.value = e.target.value.slice(0, 4))}
           />
           <input
             className="controls-date"
@@ -67,6 +70,7 @@ const CalendarControls = ({
             id="select-date"
             name="select-date"
             onChange={(e) => handleDate(e.target.value)}
+            max="9999-12-31"
           />
         </div>
       </div>

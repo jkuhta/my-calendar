@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home/Home";
 import Welcome from "./pages/welcome/Welcome";
-import holidaysCSV from "./assets/publicholiday.SI.2024.csv";
+import holidaysCSV from "./assets/publicholiday.SI.csv";
 import Papa from "papaparse";
 import { useEffect, useState } from "react";
 
@@ -20,7 +20,13 @@ function App() {
       header: true,
       delimiter: ",",
       complete: function (results) {
+        if (results.data.length === 0) {
+          console.error("CSV file is empty", results);
+        }
         setHolidaysData(results.data);
+      },
+      error: function (error) {
+        console.error("An error occurred while parsing the CSV file:", error);
       },
     });
   };

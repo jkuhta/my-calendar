@@ -21,18 +21,26 @@ const Home = ({ holidaysData }) => {
   const handleNextMonth = () => {
     const newDate = new Date(selectedDate);
     newDate.setMonth(selectedDate.getMonth() + 1);
-    setSelectedDate(newDate);
+    // Do not allow Year to be more than 9999
+    if (newDate.getFullYear() <= 9999) setSelectedDate(newDate);
   };
 
   // Function to update Month to previous month
   const handlePrevMonth = () => {
     const newDate = new Date(selectedDate);
     newDate.setMonth(selectedDate.getMonth() - 1);
-    setSelectedDate(newDate);
+    // Do not allow Year to be less than 1
+    if (newDate.getFullYear() > 0) setSelectedDate(newDate);
   };
 
   // Function to update Year to selected year
-  const handleYear = (selectedYear) => {
+  const handleYear = (e) => {
+    // Do not allow input 0000
+    if (e.target.value === "0000") {
+      e.target.value = "000";
+      return;
+    }
+    const selectedYear = e.target.value;
     if (selectedYear.length === 4) {
       const newDate = new Date(selectedDate);
       newDate.setFullYear(Number(selectedYear));
